@@ -1,0 +1,165 @@
+{
+  "name": "h743iit6_demo",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    "Core",
+    "Drivers",
+    "User",
+    "Middlewares"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "Startup",
+        "files": [
+          {
+            "path": "startup_stm32h743xx.s"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "601b487a4da76ef0db64e2d09370b732"
+  },
+  "targets": {
+    "Debug": {
+      "excludeList": [],
+      "toolchain": "GCC",
+      "compileConfig": {
+        "cpuType": "Cortex-M7",
+        "floatingPointHardware": "double",
+        "scatterFilePath": "stm32h743iitx_flash.ld",
+        "useCustomScatterFile": true,
+        "storageLayout": {
+          "RAM": [],
+          "ROM": []
+        },
+        "options": "null"
+      },
+      "uploader": "STLink",
+      "uploadConfig": {
+        "bin": "",
+        "proType": "SWD",
+        "resetMode": "default",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x08000000",
+        "elFile": "None",
+        "optionBytes": ".eide/debug.st.option.bytes.ini",
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "STLink": {
+          "bin": "",
+          "proType": "SWD",
+          "resetMode": "default",
+          "runAfterProgram": true,
+          "speed": 4000,
+          "address": "0x08000000",
+          "elFile": "None",
+          "optionBytes": ".eide/debug.st.option.bytes.ini",
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "stm32h7x",
+          "interface": "cmsis-dap-v1",
+          "baseAddr": "0x08000000"
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Core/Inc",
+          "Drivers/CMSIS/Include",
+          "Drivers/CMSIS/Device/ST/STM32H7xx/Include",
+          "Drivers/STM32H7xx_HAL_Driver/Inc",
+          "Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
+          "User",
+          "User/Delay",
+          "User/SDRAM",
+          "User/ATK_RGBLCD",
+          "Middlewares/Third_Party/LVGL",
+          "Middlewares/Third_Party/LVGL/GUI/lvgl",
+          "Middlewares/Third_Party/LVGL/GUI_APP/demos/stress",
+          "Middlewares/Third_Party/LVGL/GUI_APP/demos/widgets",
+          "Middlewares/Third_Party/LVGL/GUI_APP/demos",
+          "Middlewares/Third_Party/LVGL/GUI/lvgl/examples/porting",
+          "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
+          "Middlewares/Third_Party/FreeRTOS/Source/include",
+          "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
+          "User/AS608",
+          "User/ASR_Pro",
+          "User/Beep",
+          "User/BLE",
+          "User/ESP32",
+          "User/Key",
+          "User/MAX30102",
+          "User/MLX90614",
+          "User/RC522",
+          "User/SG90",
+          "User/SR04",
+          "Middlewares/Third_Party/LVGL/GUI_APP/MyApp/custom",
+          "Middlewares/Third_Party/LVGL/GUI_APP/MyApp/generated",
+          "Middlewares/Third_Party/LVGL/GUI_APP/MyApp/generated/guider_customer_fonts",
+          "Middlewares/Third_Party/LVGL/GUI/lvgl/src"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_PWR_LDO_SUPPLY",
+          "USE_HAL_DRIVER",
+          "STM32H743xx",
+          "STM32H7"
+        ]
+      },
+      "builderOptions": {
+        "GCC": {
+          "version": 5,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "$float-abi-type": "softfp",
+            "output-debug-info": "enable",
+            "misc-control": "--specs=nosys.specs --specs=nano.specs"
+          },
+          "c/cpp-compiler": {
+            "language-c": "c11",
+            "language-cpp": "c++11",
+            "optimization": "level-debug",
+            "warnings": "all-warnings",
+            "one-elf-section-per-function": true,
+            "one-elf-section-per-data": true
+          },
+          "asm-compiler": {},
+          "linker": {
+            "output-format": "elf",
+            "remove-unused-input-sections": true,
+            "LIB_FLAGS": "-lm",
+            "$toolName": "auto",
+            "LD_FLAGS": "-u_printf_float"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.5"
+}
