@@ -26,5 +26,6 @@
 #define CMD_LEAVE_MESSAGE    0x91
 #define CMD_CLEAR_UID        0x92
 #define CMD_DETECTED_SOUND   0x93
+#define CMD_START_LEAVE      0x94
 #define CMD_EMERGENCY_CALL   0x9A
 #define CMD_DELETE_CARD      0x9B

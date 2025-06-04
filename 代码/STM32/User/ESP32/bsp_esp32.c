@@ -99,6 +99,13 @@ void ESP32_Task(void *pvParameters)
                 // lv_obj_add_flag(guider_ui.main_label_tip, LV_OBJ_FLAG_HIDDEN);
                 break;
 
+            case CMD_START_LEAVE:
+                printf("Start leaving\n");
+                lv_label_set_text(guider_ui.main_label_tip, "请留言");
+                vTaskDelay(8000);
+                lv_label_set_text(guider_ui.main_label_tip, "");
+                break;
+
             default: printf("Receive Byte: 0x%X\n", authen); break;
         }
     }

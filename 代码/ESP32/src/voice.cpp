@@ -240,6 +240,7 @@ void VoiceAPI::sendExecuteCMD(String identification)
         delay(50);
         Serial.println("Execute the door opening command");
     } else if (identification == "留言。" || identification == "留留言。") {
+		Serial.write(CMD_START_LEAVE);
         leaveMessage(longFile);
         getIdentification(sd, longFile);
     } else if (identification == "呼叫。" || identification == "呼呼叫。") {
