@@ -5,6 +5,7 @@
 #include "api.h"
 #include "record.h"
 #include "mymqtt.h"
+#include "ai.h"
 
 #define SOUND_THRESHOLD 3000 // 根据实际环境调整阈值
 

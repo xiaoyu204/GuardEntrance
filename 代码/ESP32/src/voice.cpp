@@ -66,8 +66,8 @@ bool VoiceAPI::isSomeoneApproach()
         return true;
     } else {
 #if DEBUG
-        Serial.println("No sound detected");
-        delay(100); // 避免频繁打印
+        // Serial.println("No sound detected");
+        // delay(1000); // 避免频繁打印
 #endif
         return false;
     }
@@ -89,7 +89,8 @@ void VoiceAPI::parseInfo(String response)
 #if DEBUG
         Serial.println("Identification result: " + result);
 #endif
-        sendExecuteCMD(result);
+        sendExecuteCMD(parseResponse(sendRequest(result)));
+        // sendExecuteCMD(result);
     } else if (doc["err_msg"].as<String>()) {
         String errMsg = doc["err_msg"].as<String>();
 #if DEBUG
@@ -227,23 +228,28 @@ retry:
 void VoiceAPI::sendExecuteCMD(String identification)
 {
 #if DEBUG
-    if (identification == "开门。") {
-        Serial.println("Execute the door opening command");
-    } else if (identification == "留言。") {
+    // if (identification == "开门。") {
+    if (identification == "开门" ) {
+    Serial.println("Execute the door opening command");
+    // } else if (identification == "留言。") {
+    } else if (identification == "留言") {
         leaveMessage(longFile);
     } else {
         Serial.println(identification);
     }
 #else
-    if (identification == "开门。" || identification == "开开门") {
+    // if (identification == "开门。" || identification == "开开门") {
+    if (identification == "开门" ) {
         Serial.write(CMD_OPEN_DOOR);
         delay(50);
         Serial.println("Execute the door opening command");
-    } else if (identification == "留言。" || identification == "留留言。") {
-		Serial.write(CMD_START_LEAVE);
+        // } else if (identification == "留言。" || identification == "留留言。") {
+    } else if (identification == "留言") {
+        Serial.write(CMD_START_LEAVE);
         leaveMessage(longFile);
         getIdentification(sd, longFile);
-    } else if (identification == "呼叫。" || identification == "呼呼叫。") {
+        // } else if (identification == "呼叫。" || identification == "呼呼叫。") {
+    } else if (identification == "呼叫") {
         attributes.call = "Someone Call";
     } else {
         Serial.println(identification);
